@@ -8,6 +8,15 @@ public class Auto {
     private String year;
     private String country;
 
+    public Auto(String brand, String model, String engineVolume, String color, String year, String country) {
+        this.brand = brand;
+        this.model = model;
+        this.engineVolume = engineVolume;
+        this.color = color;
+        this.year = year;
+        this.country = country;
+    }
+
     public String getBrand() {
         return brand;
     }
