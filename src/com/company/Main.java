@@ -1,5 +1,4 @@
 package com.company;
-
 import transport.Car;
 
 public class Main {
