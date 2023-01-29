@@ -1,5 +1,6 @@
 package com.company;
 
+import transport.Bus;
 import transport.Car;
 
 public class Main {
@@ -42,5 +43,13 @@ public class Main {
         System.out.println(car3);
         System.out.println(car4);
         System.out.println(car5);
+
+        Bus bus1 = new Bus("Volvo", "xc100", "2007", "Sweeden", "white", "120");
+        Bus bus2 = new Bus("Mercedes", "Artois", "2013", "Germany", "red", "140");
+        Bus bus3 = new Bus("ЛиАЗ", "лиаз2.0", "2019", "Russia", "green", "130");
+
+        System.out.println(bus1);
+        System.out.println(bus2);
+        System.out.println(bus3);
     }
 }
