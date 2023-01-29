@@ -2,38 +2,24 @@ package transport;
 
 import javax.swing.*;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport{
+
     private String engineVolume;
-    private String color;
-    private final String year;
-    private final String country;
     private String gear;
     private final String carBodyType;
     private String number;
     private final String seats;
     private boolean hasSpikes;
 
-    public Car(String brand, String model, String engineVolume, String color, String year, String country,
-               String gear, String carBodyType, String number, String seats, boolean hasSpikes) {
-        if (model == "") {this.model = "default";}
-        else {this.model = model;}
+    public Car(String brand, String model, String engineVolume,
+               String color, String year, String country,
+               String gear, String carBodyType, String number, String seats,
+               boolean hasSpikes, String maxSpeed) {
 
-        if (brand == "") {this.brand = "default";}
-        else {this.brand = brand;}
-
-        if (country == "") {this.country = "default";}
-        else {this.country = country;}
+        super(brand, model, year, country, color, maxSpeed);
 
         if (Double.parseDouble(engineVolume) <= 0) {this.engineVolume = "1.5";}
         else {this.engineVolume = engineVolume;}
-
-        if (color == "") {this.color = "white";}
-        else {this.color = color;}
-
-        if (Integer.parseInt(year) <= 0) {this.year = "2000";}
-        else {this.year = year;}
 
         if (!(Integer.parseInt(gear) >= 1 && Integer.parseInt(gear) <= 8)) {this.gear = "default";}
         else {this.gear = gear;}
@@ -50,36 +36,13 @@ public class Car {
         this.hasSpikes = hasSpikes;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
     public String getEngineVolume() {
         return engineVolume;
     }
 
     public void setEngineVolume(String engineVolume) {
-        this.engineVolume = engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
+        if (Double.parseDouble(engineVolume) <= 0) {this.engineVolume = "1.5";}
+        else {this.engineVolume = engineVolume;}
     }
 
     public String getGear() {
@@ -87,7 +50,8 @@ public class Car {
     }
 
     public void setGear(String gear) {
-        this.gear = gear;
+        if (!(Integer.parseInt(gear) >= 1 && Integer.parseInt(gear) <= 8)) {this.gear = "default";}
+        else {this.gear = gear;}
     }
 
     public String getCarBodyType() {
@@ -99,7 +63,8 @@ public class Car {
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        if (number == "" || number == "0") {this.number = "default";}
+        else {this.number = number;}
     }
 
     public String getSeats() {
@@ -120,17 +85,18 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume='" + engineVolume + '\'' +
-                ", color='" + color + '\'' +
-                ", year='" + year + '\'' +
-                ", country='" + country + '\'' +
+                "brand='" + super.getBrand() + '\'' +
+                ", model='" + super.getModel() + '\'' +
+                ", Engine volume='" + engineVolume + '\'' +
+                ", color='" + super.getColor() + '\'' +
+                ", year='" + super.getYear() + '\'' +
+                ", country='" + super.getCountry() + '\'' +
                 ", gear='" + gear + '\'' +
                 ", carBodyType='" + carBodyType + '\'' +
                 ", number='" + number + '\'' +
                 ", seats='" + seats + '\'' +
-                ", hasSpikes=" + hasSpikes +
+                ", has spikes=" + hasSpikes +
+                ", max speed=" + super.getMaxSpeed() +
                 '}';
     }
 
