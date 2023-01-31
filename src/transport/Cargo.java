@@ -1,23 +1,23 @@
 package transport;
 
-public class Bus extends Transport {
+public class Cargo extends Transport {
 
-    public Bus(String brand, String model, String engineVolume) {
+    public Cargo(String brand, String model, String engineVolume) {
         super(brand, model, engineVolume);
     }
 
     @Override
     public void startMove() {
-        System.out.println("Bus starts moving...");
+        System.out.println("Cargo car starts moving...");
     }
     @Override
     public void stopMove() {
-        System.out.println("Bus stops moving...");
+        System.out.println("Cargo car stops moving...");
     }
 
     @Override
     public String toString() {
-        return "Bus{" +
+        return "Cargo{" +
                 super.toString() +
                 '}';
     }
