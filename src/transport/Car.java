@@ -1,11 +1,10 @@
 package transport;
 
-import javax.swing.*;
+import com.company.CarDriver;
 
-public class Car extends Transport{
-
-    public Car(String brand, String model, String engineVolume) {
-        super(brand, model, engineVolume);
+public class Car extends Transport<CarDriver> implements Participant{
+    public Car(String brand, String model, String engineVolume, CarDriver driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     @Override
@@ -15,6 +14,18 @@ public class Car extends Transport{
     @Override
     public void stopMove() {
         System.out.println("Car stops moving...");
+    }
+    @Override
+    public void pit_stop() {
+        System.out.println("Машина ушла на пит-стоп");
+    }
+    @Override
+    public void bestTime() {
+        System.out.println("Лучшее время машины:__:__");
+    }
+    @Override
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость машины:___");
     }
 
     @Override

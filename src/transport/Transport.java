@@ -1,17 +1,27 @@
 package transport;
+import com.company.Driver;
 
-public abstract class Transport {
+public abstract class Transport<T extends Driver> {
     private final String brand;
     private final String model;
     private String engineVolume;
+    private T driver;
 
-    public Transport(String brand, String model, String engineVolume) {
+    public Transport(String brand, String model, String engineVolume, T driver) {
         if(brand == null) {this.brand = "set brand";}
         else {this.brand = brand;}
         if(model == null) {this.model = "set model";}
         else {this.model = model;}
-        if (Double.parseDouble(engineVolume) <= 0) {this.engineVolume = "1.5";}
+        if (Double.parseDouble(engineVolume) <= 0) {this.engineVolume = "default";}
         else {this.engineVolume = engineVolume;}
+        this.driver = driver;
+    }
+
+    public T getDriver() {
+        return driver;
+    }
+    public void setDriver(T driver) {
+        this.driver = driver;
     }
 
     public String getBrand() {

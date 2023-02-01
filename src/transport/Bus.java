@@ -1,9 +1,11 @@
 package transport;
 
-public class Bus extends Transport {
+import com.company.BusDriver;
 
-    public Bus(String brand, String model, String engineVolume) {
-        super(brand, model, engineVolume);
+public class Bus extends Transport<BusDriver> implements Participant {
+
+    public Bus(String brand, String model, String engineVolume, BusDriver driver) {
+        super(brand, model, engineVolume, driver);
     }
 
     @Override
@@ -13,6 +15,18 @@ public class Bus extends Transport {
     @Override
     public void stopMove() {
         System.out.println("Bus stops moving...");
+    }
+    @Override
+    public void pit_stop() {
+        System.out.println("Автобус ушел на пит-стоп");
+    }
+    @Override
+    public void bestTime() {
+        System.out.println("Лучшее время автобуса:__:__");
+    }
+    @Override
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость автобуса:___");
     }
 
     @Override
