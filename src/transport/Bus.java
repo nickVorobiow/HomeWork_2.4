@@ -1,20 +1,38 @@
 package transport;
 
-public class Bus extends Transport {
+import com.company.BusDriver;
 
-    public Bus(String brand, String model, String year, String country, String color, String maxSpeed) {
-        super(brand, model, year, country, color, maxSpeed);
+public class Bus extends Transport<BusDriver> implements Participant {
+
+    public Bus(String brand, String model, String engineVolume, BusDriver driver) {
+        super(brand, model, engineVolume, driver);
+    }
+
+    @Override
+    public void startMove() {
+        System.out.println("Bus starts moving...");
+    }
+    @Override
+    public void stopMove() {
+        System.out.println("Bus stops moving...");
+    }
+    @Override
+    public void pit_stop() {
+        System.out.println("Автобус ушел на пит-стоп");
+    }
+    @Override
+    public void bestTime() {
+        System.out.println("Лучшее время автобуса:__:__");
+    }
+    @Override
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость автобуса:___");
     }
 
     @Override
     public String toString() {
         return "Bus{" +
-                "brand='" + super.getBrand() + '\'' +
-                ", model='" + super.getModel() + '\'' +
-                ", color='" + super.getColor() + '\'' +
-                ", year='" + super.getYear() + '\'' +
-                ", country='" + super.getCountry() + '\'' +
-                ", max speed=" + super.getMaxSpeed() +
+                super.toString() +
                 '}';
     }
 }
